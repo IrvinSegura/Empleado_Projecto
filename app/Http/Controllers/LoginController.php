@@ -52,7 +52,6 @@ class LoginController extends Controller
         if($aux==0){
             echo "Usuario o contraseña incorrectos";
         }
-        $_SESSION
     }
 
     
@@ -123,7 +122,5 @@ class LoginController extends Controller
         ->update(['nombre' => 'Kevin']);
         echo "Nombre actualizado";
     }
-
-
 }
 
