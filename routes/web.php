@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormularioController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\EmpleadosController;
 use App\Models\Login;
 use App\Models\Persona;
 
@@ -36,3 +37,12 @@ Route::get('/login/ordenamiento', [LoginController::class, 'login_ordenamiento']
 Route::get('/login/ordenamiento/descendiente', [LoginController::class, 'login_ordenamiento_descendiente'])->name('login_ordenamiento2.dato');
 Route::get('/login/buscar_datos', [LoginController::class, 'login_buscar_nombre'])->name('login_buscar_datos.dato');
 Route::get('/login/actualizar_nombre', [LoginController::class, 'login_actualizar_nombre'])->name('login_editar_datos.dato');
+
+
+Route::get('/empleado', [EmpleadosController::class, 'index'])->name('index.dato');
+Route::post('/empleado/datos', [EmpleadosController::class, 'empleado_dato'])->name('empleado.dato');
+
+Route::get('/empleado/mostrar', [EmpleadosController::class, 'empleado_mostrar'])->name('empleado_mostrar.dato');
+Route::get('/empleado/ordenamiento', [EmpleadosController::class, 'empleado_ordenamiento'])->name('empleado_ordenamiento.dato');
+Route::get('/empleado/ordenamiento/descendiente', [EmpleadosController::class, 'empleado_ordenamiento_descendiente'])->name('empleado_ordenamiento2.dato');
+Route::get('/empleado/buscar_datos', [EmpleadosController::class, 'empleado_buscar_nombre'])->name('empleado_buscar_datos.dato');
