@@ -46,3 +46,5 @@ Route::get('/empleado/mostrar', [EmpleadosController::class, 'empleado_mostrar']
 Route::get('/empleado/ordenamiento', [EmpleadosController::class, 'empleado_ordenamiento'])->name('empleado_ordenamiento.dato');
 Route::get('/empleado/ordenamiento/descendiente', [EmpleadosController::class, 'empleado_ordenamiento_descendiente'])->name('empleado_ordenamiento2.dato');
 Route::get('/empleado/buscar_datos', [EmpleadosController::class, 'empleado_buscar_nombre'])->name('empleado_buscar_datos.dato');
+
+Route::get('empleado/generarJSON' , [EmpleadosController::class, 'generar_json'])->name('generaraJSON.dato');
