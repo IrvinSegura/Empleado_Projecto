@@ -128,4 +128,34 @@ class EmpleadosController extends Controller
             echo "Empleado no encontrado";
         }
     }
+    
+    public function generar_json(){
+        $empleado= DB::table('empleados')
+        ->select('nombre', 'apellido', 'email', 'telefono', 'fecha_contratacion', 'puesto', 'salario', 'departamento')
+        ->get();
+        $json = json_encode($empleado);
+        $file = fopen("empleados.json", "w");
+        fwrite($file, $json);
+        fclose($file);
+        echo "<center>";
+        echo "Archivo generado";
+        echo "<br>";
+        echo "<a href='/empleado'>Cerrar Sesion</a>";
+        echo "</center>";
+        $json = file_get_contents("empleados.json");
+        $json = json_decode($json, true);
+        foreach ($json as $json) {
+            echo "<br>";
+            echo "<br>";
+            echo "Nombre: ".$json['nombre']. "<br>";
+            echo "Apellido: ".$json['apellido']. "<br>";
+            echo "Email: ".$json['email']. "<br>";
+            echo "Telefono: ".$json['telefono']. "<br>";
+            echo "Fecha de contratacion: ".$json['fecha_contratacion']. "<br>";
+            echo "Puesto: ".$json['puesto']. "<br>";
+            echo "Salario: ".$json['salario']. "<br>";
+            echo "Departamento: ".$json['departamento']. "<br>";
+            echo "<br>";
+        }
+    }
 }
